@@ -1,0 +1,55 @@
+To install Coolify on a VPS, you can follow these steps:
+
+1. **Update your system:**
+    Make sure your system is up to date.
+
+    ```sh
+    sudo apt update && sudo apt upgrade -y
+    ```
+
+2. **Install Docker:**
+    Coolify requires Docker to run. Install Docker using the following commands:
+
+    ```sh
+    curl -fsSL https://get.docker.com -o get-docker.sh
+    sudo sh get-docker.sh
+    ```
+
+3. **Install Docker Compose:**
+    Coolify also requires Docker Compose. Install it using the following commands:
+
+    ```sh
+    sudo curl -L "https://github.com/docker/compose/releases/download/$(curl -s https://api.github.com/repos/docker/compose/releases/latest | grep -Po '"tag_name": "\K.*\d')" /usr/local/bin/docker-compose
+    sudo chmod +x /usr/local/bin/docker-compose
+    ```
+
+4. **Clone Coolify repository:**
+    Clone the Coolify repository from GitHub.
+
+    ```sh
+    git clone https://github.com/coollabsio/coolify.git
+    cd coolify
+    ```
+
+5. **Create environment file:**
+    Create a `.env` file with the necessary environment variables. You can use the provided example file as a template.
+
+    ```sh
+    cp .env.example .env
+    ```
+
+6. **Start Coolify:**
+    Use Docker Compose to start Coolify.
+
+    ```sh
+    sudo docker-compose up -d
+    ```
+
+7. **Access Coolify:**
+    Once Coolify is running, you can access it via your VPS's IP address on port 3000.
+
+    ```sh
+    http://your-vps-ip:3000
+    ```
+
+That's it! You should now have Coolify running on your VPS.
